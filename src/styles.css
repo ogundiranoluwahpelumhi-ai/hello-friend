@@ -5,9 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system — "Noir & Gold" luxury editorial.
- * Deep noir surfaces, warm cream text, champagne-gold accents.
- * Headings: Cormorant Garamond (serif). Body: Karla (sans).
+ * LYNXDEVOPS design system.
+ * Dark technical surfaces, purple identity, green signals only.
+ * Display: Space Grotesk. Body: Inter.
  */
 
 @theme inline {
@@ -37,39 +37,47 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-gold: var(--gold);
-  --color-gold-soft: var(--gold-soft);
-  --color-noir: var(--noir);
-  --color-noir-raised: var(--noir-raised);
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Karla", ui-sans-serif, system-ui, sans-serif;
+  --color-purple-bright: var(--purple-bright);
+  --color-green: var(--green);
+  --color-green-deep: var(--green-deep);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-ink: var(--ink);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  --radius: 0.375rem;
-  --background: oklch(0.145 0.004 85);
-  --foreground: oklch(0.945 0.012 90);
-  --card: oklch(0.185 0.005 85);
-  --card-foreground: oklch(0.945 0.012 90);
-  --popover: oklch(0.165 0.005 85);
-  --popover-foreground: oklch(0.945 0.012 90);
-  --primary: oklch(0.78 0.125 86);
-  --primary-foreground: oklch(0.145 0.004 85);
-  --secondary: oklch(0.23 0.006 85);
-  --secondary-foreground: oklch(0.945 0.012 90);
-  --muted: oklch(0.23 0.006 85);
-  --muted-foreground: oklch(0.68 0.012 88);
-  --accent: oklch(0.78 0.125 86);
-  --accent-foreground: oklch(0.145 0.004 85);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 9%);
-  --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.78 0.125 86 / 50%);
-  --gold: oklch(0.78 0.125 86);
-  --gold-soft: oklch(0.885 0.088 90);
-  --noir: oklch(0.145 0.004 85);
-  --noir-raised: oklch(0.185 0.005 85);
+  --radius: 0.5rem;
+  --background: #08090D;
+  --foreground: #F5F7FA;
+  --card: #11151D;
+  --card-foreground: #F5F7FA;
+  --popover: #0D1017;
+  --popover-foreground: #F5F7FA;
+  --primary: #8B5CF6;
+  --primary-foreground: #FFFFFF;
+  --secondary: #151A23;
+  --secondary-foreground: #F5F7FA;
+  --muted: #151A23;
+  --muted-foreground: #A8B0BF;
+  --accent: #151A23;
+  --accent-foreground: #F5F7FA;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #242A35;
+  --input: #242A35;
+  --ring: #8B5CF6;
+  --purple-bright: #A78BFA;
+  --green: #A3E635;
+  --green-deep: #65A30D;
+  --surface: #11151D;
+  --surface-raised: #151A23;
+  --ink: #0D1017;
+  --text-secondary: #A8B0BF;
+  --text-muted: #6F7888;
 }
 
 @layer base {
@@ -81,11 +89,34 @@
     scroll-behavior: smooth;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: #8B5CF6;
+    color: #FFFFFF;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--purple-bright);
+    outline-offset: 2px;
   }
 }
 
@@ -94,18 +125,40 @@
     font-family: var(--font-display);
   }
 
-  .gold-text {
-    background: linear-gradient(105deg, var(--gold) 20%, var(--gold-soft) 55%, var(--gold) 90%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+  .text-secondary {
+    color: var(--text-secondary);
   }
 
-  .hairline {
-    border-color: oklch(1 0 0 / 9%);
+  .text-dim {
+    color: var(--text-muted);
   }
 
-  .tracking-luxe {
-    letter-spacing: 0.28em;
+  /* Faint technical grid texture */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.025) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.025) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  /* Soft radial lighting, restrained */
+  .radial-glow {
+    background: radial-gradient(
+      ellipse 60% 45% at 50% 0%,
+      rgb(139 92 246 / 0.13),
+      transparent 70%
+    );
+  }
+
+  .eyebrow {
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--purple-bright);
+    font-weight: 500;
+  }
+
+  .status-live {
+    color: var(--green);
   }
 }
