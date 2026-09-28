@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { workTypes } from "@/lib/content";
-import { FinalCtaSection, SectionHeadWrapper } from "@/components/pages";
+import { FinalCtaSection } from "@/components/landing";
 
 export const Route = createFileRoute("/work")({
   head: () => ({
@@ -18,7 +18,7 @@ export const Route = createFileRoute("/work")({
           "Case studies published when the evidence is real. Stream systems, channel optimization, brand systems and creator infrastructure.",
       },
       { property: "og:type", content: "website" },
-it      },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: WorkPage,
@@ -69,9 +69,7 @@ function WorkPage() {
               </ul>
             </div>
             <div>
-              <h2 className="font-display text-xl font-semibold text-foreground">
-                Project types
-              </h2>
+              <h2 className="font-display text-xl font-semibold text-foreground">Project types</h2>
               <div className="mt-4 flex flex-wrap gap-2">
                 {workTypes.map((type) => (
                   <span
@@ -82,9 +80,7 @@ function WorkPage() {
                   </span>
                 ))}
               </div>
-              <p className="mt-5 text-sm text-dim">
-                PROJECT DETAILS AVAILABLE ON REQUEST
-              </p>
+              <p className="mt-5 text-sm text-dim">PROJECT DETAILS AVAILABLE ON REQUEST</p>
             </div>
           </div>
         </div>
