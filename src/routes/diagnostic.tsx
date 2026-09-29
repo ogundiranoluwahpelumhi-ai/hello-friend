@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { PrimaryCta } from "@/components/landing";
 
 export const Route = createFileRoute("/diagnostic")({
   head: () => ({
@@ -210,7 +209,13 @@ function DiagnosticPage() {
             </div>
 
             <div className="mt-8">
-              <PrimaryCta>GET MY FREE CHANNEL DIAGNOSTIC</PrimaryCta>
+              <button
+                type="submit"
+                disabled={pending}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-3.5 text-[12px] font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60"
+              >
+                {pending ? "SENDING…" : "GET MY FREE CHANNEL DIAGNOSTIC"}
+              </button>
             </div>
             <p className="mt-4 text-center text-xs text-dim">
               Stored securely. Never shared. No account access required.
