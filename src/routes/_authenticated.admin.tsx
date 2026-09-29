@@ -183,7 +183,7 @@ function RequestCard({
               <select
                 id={`status-${request.id}`}
                 value={status}
-                onChange={(e) => setStatus(e.target.value)}
+                onChange={(e) => setStatus(e.target.value as AuditRequest["status"])}
                 className="mt-1.5 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:border-purple-bright focus:outline-none"
               >
                 {STATUS_OPTIONS.map((s) => (
