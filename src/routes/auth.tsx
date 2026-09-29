@@ -7,7 +7,7 @@ export const Route = createFileRoute("/auth")({
     meta: [
       { title: "Studio Sign In | LYNXDEVOPS" },
       { name: "robots", content: "noindex" },
-s    ],
+    ],
   }),
   component: AuthPage,
 });
