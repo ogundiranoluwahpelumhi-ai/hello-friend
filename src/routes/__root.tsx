@@ -5,6 +5,7 @@ import {
   createRootRouteWithContext,
   useRouter,
   useRouterState,
+  useHydrated,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -166,7 +167,8 @@ function Footer() {
 
 function MobileStickyCta() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  if (pathname.startsWith("/diagnostic") || pathname.startsWith("/admin")) return null;
+  const hydrated = useHydrated();
+  if (!hydrated || pathname.startsWith("/diagnostic") || pathname.startsWith("/admin")) return null;
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 px-4 py-3 backdrop-blur-md sm:hidden">
       <Link
