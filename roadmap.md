@@ -10,3 +10,6 @@
 - [ ] /admin dashboard (authenticated, admin-only, lead pipeline)
 - [ ] SEO: per-route head metadata, robots.txt, sitemap, structured data
 - [ ] QA pass: desktop + 375px mobile, links, form flow, build log
+- [ ] Add creator video, logo, banner, 3 setup photos
+- [ ] Diagnostic: Discord (LYNXDEVOPS) + email CTA, Discord server link after submit
+- [ ] Email notification on submit (needs sender email domain)
