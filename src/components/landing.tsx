@@ -220,8 +220,18 @@ function DiagnosticConsole() {
 export function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-border">
+      <img
+        src={setupOneAsset.url}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover object-center opacity-30 md:object-[center_42%] md:opacity-40"
+      />
+      <div
+        className="absolute inset-0 bg-gradient-to-b from-background/75 via-background/90 to-background md:bg-gradient-to-r md:from-background md:via-background/90 md:to-background/55"
+        aria-hidden="true"
+      />
       <div className="absolute inset-0 bg-grid" aria-hidden="true" />
-      <div className="absolute inset-0 radial-glow" aria-hidden="true" />
+      <div className="absolute inset-0 radial-glow opacity-80" aria-hidden="true" />
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 pb-20 pt-32 md:grid-cols-[1.05fr_0.95fr] md:px-8 md:pt-40">
         <div>
           <p className="eyebrow">LYNXDEVOPS / STREAMING SYSTEMS STUDIO</p>
