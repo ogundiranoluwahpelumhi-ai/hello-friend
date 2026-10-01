@@ -14,7 +14,6 @@ import { Mail, Menu, MessageCircle, X } from "lucide-react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import logoAsset from "../assets/logo.png.asset.json";
 
 export const navLinks = [
   { to: "/work", label: "Work" },
@@ -27,7 +26,7 @@ export const navLinks = [
 export function LynxMark({ className = "h-7 w-7" }: { className?: string }) {
   return (
     <img
-      src={logoAsset.url}
+      src="/media/lynxdevops-icon.jpg"
       alt=""
       className={`${className} rounded-md object-cover`}
       width="64"

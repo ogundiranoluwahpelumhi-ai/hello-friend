@@ -21,12 +21,13 @@ import {
   faqs,
   sampleDiagnostic,
 } from "@/lib/content";
-import bannerAsset from "@/assets/banner.png.asset.json";
-import creatorVideoAsset from "@/assets/creator-video.mp4.asset.json";
-import creatorVideoPosterAsset from "@/assets/creator-video-poster.jpg.asset.json";
-import setupOneAsset from "@/assets/setup-1.png.asset.json";
-import setupTwoAsset from "@/assets/setup-2.png.asset.json";
-import setupThreeAsset from "@/assets/setup-3.png.asset.json";
+
+const bannerAsset = { url: "/media/lynxdevops-banner.jpg" };
+const creatorVideoAsset = { url: "/media/lynxdevops-intro.mp4" };
+const creatorVideoPosterAsset = { url: "/media/brand-glow.jpg" };
+const setupOneAsset = { url: "/media/setup-1.jpg" };
+const setupTwoAsset = { url: "/media/setup-2.jpg" };
+const setupThreeAsset = { url: "/media/setup-3.jpg" };
 
 /* ---------- primitives ---------- */
 
