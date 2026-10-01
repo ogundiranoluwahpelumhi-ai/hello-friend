@@ -7,7 +7,8 @@ import {
   BarChart3,
   ArrowRight,
   ArrowDown,
-  Play,
+  Mail,
+  MessageCircle,
 } from "lucide-react";
 import {
   problemAreas,
@@ -20,6 +21,12 @@ import {
   faqs,
   sampleDiagnostic,
 } from "@/lib/content";
+import bannerAsset from "@/assets/banner.png.asset.json";
+import creatorVideoAsset from "@/assets/creator-video.mp4.asset.json";
+import creatorVideoPosterAsset from "@/assets/creator-video-poster.jpg.asset.json";
+import setupOneAsset from "@/assets/setup-1.png.asset.json";
+import setupTwoAsset from "@/assets/setup-2.png.asset.json";
+import setupThreeAsset from "@/assets/setup-3.png.asset.json";
 
 /* ---------- primitives ---------- */
 
@@ -602,24 +609,24 @@ export function ProcessSection() {
 
 export function WorkPreviewSection() {
   return (
-    <section className="border-b border-border bg-ink py-20 md:py-28">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-2 md:px-8">
-        <div>
+    <section className="relative min-h-[500px] overflow-hidden border-b border-border py-20 md:min-h-[620px] md:py-28">
+      <img
+        src={bannerAsset.url}
+        alt=""
+        className="absolute inset-0 h-full w-full object-cover"
+        loading="lazy"
+      />
+      <div className="absolute inset-0 bg-background/65" aria-hidden="true" />
+      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background to-transparent" aria-hidden="true" />
+      <div className="relative mx-auto flex min-h-[340px] max-w-6xl items-end px-5 md:min-h-[400px] md:px-8">
+        <div className="max-w-2xl border-l-2 border-purple-bright bg-background/80 p-6 backdrop-blur-sm md:p-8">
           <SectionHead
             eyebrow="SELECTED WORK"
-            title={<>PROJECTS ARE PUBLISHED WHEN THE EVIDENCE IS REAL.</>}
-            lead="LYNXDEVOPS doesn't fill this page with invented case studies. Project breakdowns are published with real media and real context, one project at a time."
+            title={<>THE SYSTEM BEHIND THE STREAM.</>}
+            lead="Creator systems, presentation and technical infrastructure brought together under one focused LYNXDEVOPS standard."
           />
-          <GhostCta to="/work">EXPLORE THE WORK</GhostCta>
-        </div>
-        <div className="flex aspect-video items-center justify-center rounded-xl border border-dashed border-border bg-surface">
-          <div className="text-center">
-            <p className="text-[11px] uppercase tracking-[0.18em] text-dim">
-              REAL PROJECT MEDIA TO BE ADDED
-            </p>
-            <p className="mt-2 text-[10px] uppercase tracking-[0.14em] text-dim/70">
-              Case studies published when evidence is verified
-            </p>
+          <div className="mt-7">
+            <GhostCta to="/work">EXPLORE THE WORK</GhostCta>
           </div>
         </div>
       </div>
@@ -632,21 +639,34 @@ export function WorkPreviewSection() {
 export function CreatorVideoSection() {
   return (
     <section className="border-b border-border py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <SectionHead
-          eyebrow="REAL CREATOR EXPERIENCE"
-          title={<>SEE THE WORK THROUGH A CREATOR'S EYES.</>}
-          lead="Real creator feedback is more useful than another marketing claim. This section is designed for verified creator experiences and project context."
-        />
-        <div className="relative mx-auto mt-12 flex aspect-video max-w-4xl items-center justify-center rounded-xl border border-dashed border-border bg-surface">
-          <div className="text-center">
-            <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-border bg-surface-raised">
-              <Play className="h-5 w-5 text-dim" aria-hidden="true" />
-            </span>
-            <p className="mt-4 text-[11px] uppercase tracking-[0.18em] text-dim">
-              [REAL CREATOR VIDEO TO BE ADDED]
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-[0.8fr_1.2fr] md:px-8">
+        <div className="mx-auto w-full max-w-sm overflow-hidden rounded-lg border border-border bg-ink shadow-2xl shadow-background/50">
+          <video
+            className="aspect-[9/16] w-full object-cover"
+            controls
+            playsInline
+            preload="metadata"
+            poster={creatorVideoPosterAsset.url}
+            aria-label="LYNXDEVOPS creator experience video"
+          >
+            <source src={creatorVideoAsset.url} type="video/mp4" />
+            Your browser does not support embedded video.
+          </video>
+          <div className="border-t border-border px-4 py-3">
+            <p className="text-[10px] uppercase tracking-[0.16em] text-dim">
+              Creator experience · 00:56
             </p>
           </div>
+        </div>
+        <div>
+          <SectionHead
+            eyebrow="REAL CREATOR EXPERIENCE"
+            title={<>SEE THE WORK THROUGH A CREATOR'S EYES.</>}
+            lead="A direct creator perspective on the experience of working with LYNXDEVOPS — presented in their own voice, without manufactured claims."
+          />
+          <p className="mt-6 border-l border-purple-bright pl-4 text-sm leading-relaxed text-secondary">
+            Press play to hear the full creator experience. Captions and volume controls are available through the video player.
+          </p>
         </div>
       </div>
     </section>
@@ -691,15 +711,44 @@ export function MetricsSection() {
 /* ---------- founder ---------- */
 
 export function FounderSection() {
+  const setups = [
+    { asset: setupOneAsset, alt: "Curved multi-monitor gaming and streaming setup with blue and pink lighting" },
+    { asset: setupTwoAsset, alt: "Glass desk creator workstation overlooking a city skyline" },
+    { asset: setupThreeAsset, alt: "Overhead view of an advanced multi-monitor streaming workstation" },
+  ];
+
   return (
     <section className="border-b border-border py-20 md:py-28">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-2 md:px-8">
-        <div className="flex aspect-[4/5] max-h-[420px] w-full items-center justify-center rounded-xl border border-dashed border-border bg-surface">
-          <p className="px-6 text-center text-[11px] uppercase tracking-[0.18em] text-dim">
-            [REAL WORKSTATION / FOUNDER IMAGE TO BE ADDED]
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <div className="grid items-end gap-10 md:grid-cols-[0.85fr_1.15fr]">
+          <SectionHead
+            eyebrow="STREAMING ENVIRONMENTS"
+            title={<>THE SETUP IS PART OF THE SYSTEM.</>}
+            lead="Purpose-built creator spaces show how hardware, lighting, monitoring and workflow can work together as one operating environment."
+          />
+          <p className="text-sm leading-relaxed text-secondary md:max-w-md md:justify-self-end">
+            These reference setups highlight the level of structure LYNXDEVOPS considers when reviewing a creator's technical environment.
           </p>
         </div>
-        <div>
+        <div className="mt-12 grid auto-rows-[260px] gap-3 sm:grid-cols-2 md:auto-rows-[310px] md:grid-cols-3">
+          {setups.map(({ asset, alt }, index) => (
+            <figure
+              key={asset.url}
+              className={`group relative overflow-hidden rounded-lg border border-border bg-surface ${index === 0 ? "sm:row-span-2 md:row-span-1" : ""}`}
+            >
+              <img
+                src={asset.url}
+                alt={alt}
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                loading="lazy"
+              />
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/75 to-transparent px-4 pb-4 pt-12 text-[10px] uppercase tracking-[0.14em] text-foreground">
+                Setup reference {String(index + 1).padStart(2, "0")}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <div className="mt-16 grid gap-10 border-t border-border pt-12 md:grid-cols-2">
           <SectionHead
             eyebrow="BEHIND THE BUILD"
             title={
@@ -730,6 +779,19 @@ export function FounderSection() {
               </li>
             ))}
           </ul>
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-purple-bright">
+              Founder / Developer
+            </p>
+            <ul className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+              {["STREAMING SYSTEMS", "CHANNEL DIAGNOSTICS", "CREATOR WORKFLOWS", "TECHNICAL IMPLEMENTATION"].map((cap) => (
+                <li key={cap} className="flex items-center gap-2.5 text-[12px] font-medium tracking-[0.08em] text-secondary">
+                  <span className="h-1 w-1 rounded-full bg-green" aria-hidden="true" />
+                  {cap}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -906,22 +968,26 @@ export function CommunitySection() {
               systems behind streaming.
             </p>
           </div>
-          <div className="flex flex-col gap-3">
-            <span
-              className="inline-flex cursor-default items-center justify-center rounded-md border border-border px-6 py-3.5 text-[12px] font-semibold uppercase tracking-[0.14em] text-dim"
-              title="Community destination to be added"
+           <div className="flex w-full flex-col gap-3 md:w-auto">
+             <a
+               href="https://discord.gg/KSNnDyzwU"
+               target="_blank"
+               rel="noreferrer"
+               className="inline-flex items-center justify-center gap-2 rounded-md border border-border px-6 py-3.5 text-[12px] font-semibold uppercase tracking-[0.14em] text-foreground transition-colors hover:border-purple-bright"
             >
+               <MessageCircle className="h-4 w-4" aria-hidden="true" />
               JOIN THE LYNXDEVOPS COMMUNITY
-            </span>
+             </a>
             <Link
               to="/diagnostic"
               className="text-center text-[11px] font-semibold uppercase tracking-[0.14em] text-purple-bright transition-opacity hover:opacity-80"
             >
               GET MY FREE DIAGNOSTIC
             </Link>
-            <span className="text-center text-[10px] text-dim/70">
-              Community destination to be added
-            </span>
+             <a href="mailto:LYNXDEVOPS1@GMAIL.COM" className="inline-flex items-center justify-center gap-2 text-center text-[10px] uppercase tracking-[0.12em] text-dim transition-colors hover:text-foreground">
+               <Mail className="h-3.5 w-3.5" aria-hidden="true" />
+               LYNXDEVOPS1@GMAIL.COM
+             </a>
           </div>
         </div>
       </div>

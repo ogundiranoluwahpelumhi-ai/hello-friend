@@ -6,6 +6,7 @@ export const Route = createFileRoute("/privacy")({
       { title: "Privacy | LYNXDEVOPS" },
       { name: "description", content: "How LYNXDEVOPS handles submitted channel information." },
       { property: "og:title", content: "Privacy | LYNXDEVOPS" },
+      { property: "og:description", content: "How LYNXDEVOPS stores and protects channel diagnostic submissions." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -37,7 +38,7 @@ function PrivacyPage() {
           </p>
           <p>
             You can request removal of your submitted information at any time by contacting{" "}
-            <span className="text-foreground">hello@[YOUR-DOMAIN]</span>.
+            <a href="mailto:LYNXDEVOPS1@GMAIL.COM" className="text-foreground transition-colors hover:text-purple-bright">LYNXDEVOPS1@GMAIL.COM</a>.
           </p>
         </div>
       </div>

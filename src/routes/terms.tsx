@@ -6,6 +6,7 @@ export const Route = createFileRoute("/terms")({
       { title: "Terms | LYNXDEVOPS" },
       { name: "description", content: "Terms of service for LYNXDEVOPS streaming systems studio." },
       { property: "og:title", content: "Terms | LYNXDEVOPS" },
+      { property: "og:description", content: "The terms for LYNXDEVOPS channel diagnostics and creator systems services." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -41,7 +42,7 @@ function TermsPage() {
             not guarantees of results.
           </p>
           <p>
-            Questions? Contact <span className="text-foreground">hello@[YOUR-DOMAIN]</span>.
+            Questions? Contact <a href="mailto:LYNXDEVOPS1@GMAIL.COM" className="text-foreground transition-colors hover:text-purple-bright">LYNXDEVOPS1@GMAIL.COM</a>.
           </p>
         </div>
       </div>

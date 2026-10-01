@@ -10,10 +10,11 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
-import { Menu, X } from "lucide-react";
+import { Mail, Menu, MessageCircle, X } from "lucide-react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import logoAsset from "../assets/logo.png.asset.json";
 
 export const navLinks = [
   { to: "/work", label: "Work" },
@@ -25,13 +26,13 @@ export const navLinks = [
 
 export function LynxMark({ className = "h-7 w-7" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
-      <rect width="64" height="64" rx="14" fill="#11151D" stroke="#242A35" />
-      <polygon points="7,41 23,23 31,31 15,49" fill="#8B5CF6" />
-      <polygon points="33,41 49,23 57,31 41,49" fill="#8B5CF6" />
-      <polygon points="17,37 23,31 27,35 21,41" fill="#A78BFA" />
-      <polygon points="43,37 49,31 53,35 47,41" fill="#A78BFA" />
-    </svg>
+    <img
+      src={logoAsset.url}
+      alt=""
+      className={`${className} rounded-md object-cover`}
+      width="64"
+      height="64"
+    />
   );
 }
 
@@ -152,8 +153,25 @@ function Footer() {
               <li>KICK</li>
               <li>YouTube</li>
             </ul>
-            <p className="eyebrow mt-8">Enquiries</p>
-            <p className="mt-4 text-sm text-secondary">hello@[YOUR-DOMAIN]</p>
+             <p className="eyebrow mt-8">Enquiries</p>
+             <div className="mt-4 space-y-3 text-sm text-secondary">
+               <a
+                 href="mailto:LYNXDEVOPS1@GMAIL.COM"
+                 className="flex items-center gap-2 transition-colors hover:text-foreground"
+               >
+                 <Mail className="h-4 w-4 text-purple-bright" aria-hidden="true" />
+                 <span className="break-all">LYNXDEVOPS1@GMAIL.COM</span>
+               </a>
+               <a
+                 href="https://discord.gg/KSNnDyzwU"
+                 target="_blank"
+                 rel="noreferrer"
+                 className="flex items-center gap-2 transition-colors hover:text-foreground"
+               >
+                 <MessageCircle className="h-4 w-4 text-purple-bright" aria-hidden="true" />
+                 Discord: LYNXDEVOPS
+               </a>
+             </div>
           </div>
         </div>
         <div className="mt-12 flex flex-col gap-3 border-t border-border pt-6 text-xs text-dim sm:flex-row sm:items-center sm:justify-between">
@@ -265,7 +283,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+       { rel: "icon", type: "image/png", href: "/favicon.png" },
+       { rel: "apple-touch-icon", href: "/favicon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
