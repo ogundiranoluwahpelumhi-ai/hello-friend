@@ -160,7 +160,7 @@ function Chip({ children }: { children: ReactNode }) {
 
 function DiagnosticConsole() {
   return (
-    <div className="relative overflow-hidden rounded-xl border border-border bg-surface shadow-2xl shadow-black/40">
+    <div className="relative overflow-hidden rounded-xl border border-purple-bright/20 bg-surface/90 shadow-[0_24px_90px_-34px_rgba(139,92,246,0.42)] backdrop-blur-xl">
       {/* header */}
       <div className="flex items-center justify-between border-b border-border px-4 py-3">
         <div className="flex items-center gap-2">
@@ -220,20 +220,24 @@ function DiagnosticConsole() {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-border">
+    <section className="relative isolate overflow-hidden border-b border-border">
       <img
         src={setupOneAsset.url}
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover object-center opacity-30 md:object-[center_42%] md:opacity-40"
+        className="absolute inset-0 h-full w-full object-cover object-[62%_center] opacity-45 md:object-[center_42%] md:opacity-60"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-b from-background/75 via-background/90 to-background md:bg-gradient-to-r md:from-background md:via-background/90 md:to-background/55"
+        className="absolute inset-0 bg-gradient-to-b from-background/65 via-background/80 to-background md:bg-gradient-to-r md:from-background md:via-background/80 md:to-background/25"
         aria-hidden="true"
       />
-      <div className="absolute inset-0 bg-grid" aria-hidden="true" />
-      <div className="absolute inset-0 radial-glow opacity-80" aria-hidden="true" />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 pb-20 pt-32 md:grid-cols-[1.05fr_0.95fr] md:px-8 md:pt-40">
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_78%_34%,rgba(139,92,246,0.22),transparent_38%),radial-gradient(ellipse_at_88%_72%,rgba(34,211,238,0.10),transparent_34%)]"
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 bg-grid opacity-70" aria-hidden="true" />
+      <div className="absolute inset-0 radial-glow opacity-90" aria-hidden="true" />
+      <div className="relative mx-auto grid min-h-[620px] max-w-6xl items-center gap-12 px-5 pb-20 pt-32 md:min-h-[680px] md:grid-cols-[1.05fr_0.95fr] md:px-8 md:pt-32">
         <div>
           <p className="eyebrow">LYNXDEVOPS / STREAMING SYSTEMS STUDIO</p>
           <h1 className="mt-5 font-display text-5xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-6xl">
