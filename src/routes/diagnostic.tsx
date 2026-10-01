@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { Mail, MessageCircle } from "lucide-react";
 
 export const Route = createFileRoute("/diagnostic")({
   head: () => ({
@@ -75,8 +76,30 @@ function DiagnosticPage() {
             REQUEST RECEIVED.
           </h1>
           <p className="mt-4 text-[15px] leading-relaxed text-secondary">
-            Your channel is in the review queue. LYNXDEVOPS will reach out using the contact
-            method you provided — usually within 24–48 hours.
+            Your channel is in the review queue. Use either direct contact option below if you
+            want to introduce yourself or add context to your request.
+          </p>
+          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            <a
+              href="https://discord.gg/KSNnDyzwU"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-14 items-center justify-center gap-2 rounded-md bg-primary px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-primary-foreground transition-opacity hover:opacity-90"
+            >
+              <MessageCircle className="h-4 w-4" aria-hidden="true" />
+              Join Discord · LYNXDEVOPS
+            </a>
+            <a
+              href="mailto:LYNXDEVOPS1@GMAIL.COM?subject=My%20LYNXDEVOPS%20channel%20diagnostic"
+              className="inline-flex min-h-14 items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-foreground transition-colors hover:border-purple-bright"
+            >
+              <Mail className="h-4 w-4" aria-hidden="true" />
+              Email LYNXDEVOPS
+            </a>
+          </div>
+          <p className="mt-4 text-xs text-dim">
+            Discord username: <span className="text-foreground">LYNXDEVOPS</span> · Email:{" "}
+            <a href="mailto:LYNXDEVOPS1@GMAIL.COM" className="break-all text-foreground hover:text-purple-bright">LYNXDEVOPS1@GMAIL.COM</a>
           </p>
           <p className="mt-6 text-[11px] uppercase tracking-[0.14em] text-dim">
             YOUR STREAM, ENGINEERED.
@@ -99,6 +122,24 @@ function DiagnosticPage() {
             no video call needed to start, and LYNXDEVOPS never asks for passwords, stream keys
             or account access.
           </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="https://discord.gg/KSNnDyzwU"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-foreground transition-colors hover:border-purple-bright"
+            >
+              <MessageCircle className="h-4 w-4" aria-hidden="true" />
+              Discord · LYNXDEVOPS
+            </a>
+            <a
+              href="mailto:LYNXDEVOPS1@GMAIL.COM"
+              className="inline-flex items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-foreground transition-colors hover:border-purple-bright"
+            >
+              <Mail className="h-4 w-4" aria-hidden="true" />
+              LYNXDEVOPS1@GMAIL.COM
+            </a>
+          </div>
         </div>
       </section>
 
@@ -218,7 +259,7 @@ function DiagnosticPage() {
               </button>
             </div>
             <p className="mt-4 text-center text-xs text-dim">
-              Stored securely. Never shared. No account access required.
+              Stored securely. Never shared. Direct contact remains available by email or Discord.
             </p>
           </form>
         </div>
