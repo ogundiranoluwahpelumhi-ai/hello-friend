@@ -27,7 +27,7 @@ const creatorVideoAsset = { url: "/media/lynxdevops-intro.mp4" };
 const creatorVideoPosterAsset = { url: "/media/brand-glow.jpg" };
 const setupOneAsset = { url: "/media/setup-1.jpg" };
 const setupTwoAsset = { url: "/media/setup-2.jpg" };
-const setupThreeAsset = { url: "/media/setup-3.jpg" };
+const setupThreeAsset = { url: "/media/setup-3.jpg" }; const heroBackgroundAsset = { url: "/media/hero-streaming-workspace.png" };
 
 /* ---------- primitives ---------- */
 
@@ -222,7 +222,7 @@ export function Hero() {
   return (
     <section className="relative isolate overflow-hidden border-b border-border">
       <img
-        src={setupOneAsset.url}
+        src={heroBackgroundAsset.url}
         alt=""
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover object-[62%_center] opacity-45 md:object-[center_42%] md:opacity-60"
